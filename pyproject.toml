@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "omg-agent"
+version = "5.0.0"
+description = "Reproducible implementation of OMG-Agent for missing-modality reconstruction"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Research-only; dataset and model licenses apply separately"}
+dependencies = [
+  "torch==2.6.0",
+  "numpy==1.26.4",
+  "scikit-learn==1.5.2",
+  "PyYAML==6.0.2",
+  "tqdm==4.67.1",
+  "faiss-cpu==1.9.0.post1",
+  "transformers==4.52.3",
+  "accelerate==1.7.0",
+  "qwen-omni-utils==0.0.8",
+  "soundfile==0.13.1",
+  "nltk==3.9.1",
+]
+
+[project.scripts]
+omg-make-masks = "omg.scripts.make_masks:main"
+omg-precompute-plans = "omg.scripts.precompute_plans:main"
+omg-train = "omg.scripts.train:main"
+omg-evaluate = "omg.scripts.evaluate:main"
+omg-summarize = "omg.scripts.summarize:main"
+omg-validate-data = "omg.scripts.validate_data:main"
+omg-prepare-data = "omg.scripts.prepare_data:main"
+omg-audit-run = "omg.scripts.audit_run:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

@@ -1,0 +1,3 @@
+# Exact environment used by the reproducibility scripts.
+-e .
+
